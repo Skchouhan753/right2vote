@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxVolume = 7;
 
         let maxScientificValue = 0;
-        let bestCombination = [];
+        let bestCombinationArr = [];
 
         
         const totalInstruments = instruments.length;
@@ -51,23 +51,22 @@ document.addEventListener('DOMContentLoaded', function() {
           
             if (currentWeight <= maxWeight && currentVolume <= maxVolume && currentValue > maxScientificValue) {
                 maxScientificValue = currentValue;
-                bestCombination = combination;
+                bestCombinationArr = combination;
             }
         }
 
         let totalWeight = 0;
         let totalVolume = 0;
-        let selectedInstrumentDetails = bestCombination.map(index => {
+        let selectedInstrumentDetails = bestCombinationArr.map(index => {
             totalWeight += instruments[index].weight;
             totalVolume += instruments[index].volume;
             return instruments[index].name;
         });
 
       
-        document.getElementById('selected-instruments').innerHTML = selectedInstrumentDetails.map(name => `<li>${name}</li>`).join('');
-        document.getElementById('total-weight').textContent = totalWeight;
-        document.getElementById('total-volume').textContent = totalVolume;
-        document.getElementById('total-value').textContent = maxScientificValue;
+        console.log(totalWeight);
+        console.log(totalVolume);
+        console.log(maxScientificValue);
     }
 
    
